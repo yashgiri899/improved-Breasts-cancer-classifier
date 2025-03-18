@@ -51,7 +51,7 @@ Target Variable: Benign (0) / Malignant (1)
 
 🔹 Step 1: Clone the Repository
 
-git clone https://github.com/YOUR_GITHUB_USERNAME/BreastCancer_Classification.git  
+git clone https://github.com/yashgiri899/BreastCancer_Classification.git  
 cd BreastCancer_Classification  
 
 🔹 Step 2: Run the Classifier
@@ -79,11 +79,11 @@ This project is licensed under the MIT License.
 
 👨‍💻 Author
 
-Your Name
+YASH VARDHAN GIRI
 
-📧 your.email@example.com
+📧 yashgiri803@gmail.com
 
-🌐 GitHub | LinkedIn
+🌐 LinkedIn: https://www.linkedin.com/in/yash-giri-987072326/
 
 🌟 Feel free to contribute and star this repository if you found it helpful! 🌟
 
