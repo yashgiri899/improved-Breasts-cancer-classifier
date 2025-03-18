@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import logging
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
@@ -32,12 +33,20 @@ def load_data(file_path):
     
     return X, y
 
-def preprocess_data(X, y, test_size=0.2, random_state=42):
+def preprocess_data(X, y, test_size=0.2, random_state=0):
     """
-    Splits the dataset into training and testing sets.
+    Splits the dataset into training and testing sets, and applies StandardScaler.
     """
     logging.info("Splitting dataset into train and test sets...")
-    return train_test_split(X, y, test_size=test_size, random_state=random_state)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+    # Apply StandardScaler
+    logging.info("Applying StandardScaler to normalize data...")
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    return X_train, X_test, y_train, y_test
 
 def train_model(X_train, y_train, n_estimators=300, random_state=42):
     """
@@ -82,7 +91,7 @@ def main():
     # Load dataset
     X, y = load_data(DATASET_PATH)
 
-    # Split data
+    # Split data & apply scaling
     X_train, X_test, y_train, y_test = preprocess_data(X, y)
 
     # Train model
